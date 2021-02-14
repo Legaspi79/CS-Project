@@ -27,10 +27,8 @@ public class grabandthrow : MonoBehaviour
                 print(e);
             }
         }
-        if(grabCheck.collider.gameObject.transform.position != boxHolder.position){
-            grabCheck.collider.gameObject.transform.parent = null;
-        }
-        
+            
+
         if(Input.GetMouseButtonDown(0)){
             
              print("pressed");
@@ -40,6 +38,7 @@ public class grabandthrow : MonoBehaviour
                     grabCheck.collider.gameObject.GetComponent<Rigidbody2D>().velocity = new Vector2(transform.localScale.x,3)*throwforce;
                     grabCheck.collider.gameObject.GetComponent<Rigidbody2D>().isKinematic = false;
                     grabbed = false;
+                    grabCheck.collider.gameObject.transform.parent = null;
                 }
             }
             else if(!grabbed){
