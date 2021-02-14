@@ -19,13 +19,9 @@ public class grabandthrow : MonoBehaviour
         RaycastHit2D grabCheck = Physics2D.Raycast(grabDetect.position, Vector2.right * transform.localScale, rayDist); 
         
         if(grabbed && grabCheck.collider.tag == "box"){
-            try{
             grabCheck.collider.gameObject.transform.parent = boxHolder;
             grabCheck.collider.gameObject.transform.position = boxHolder.position;
             grabCheck.collider.gameObject.GetComponent<Rigidbody2D>().isKinematic = true;
-            }catch(Exception e){
-                print(e);
-            }
         }
             
 
@@ -39,6 +35,7 @@ public class grabandthrow : MonoBehaviour
                     grabCheck.collider.gameObject.GetComponent<Rigidbody2D>().isKinematic = false;
                     grabbed = false;
                     grabCheck.collider.gameObject.transform.parent = null;
+                    
                 }
             }
             else if(!grabbed){
