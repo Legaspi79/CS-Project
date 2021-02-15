@@ -1,23 +1,29 @@
-﻿using System;
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class Spawner : MonoBehaviour
 {
     public GameObject platform;
     public GameObject player;
+    public Transform Cam;
     // Start is called before the first frame update
     void Start()
     {
-        Instantiate(platform,transform.position,platform.transform.rotation);
-        Instantiate(player,transform.position,platform.transform.rotation);
+    Cam = GameObject.Find("Main Camera").transform;
+        
     }
 
     // Update is called once per frame
     void Update()
     {
-
+        if(gameObject.transform.position.y-12f<Cam.position.y){
+            GameObject G = Instantiate(Resources.Load("platform")) as GameObject;
+            G.transform.position = gameObject.transform.position;
+            gameObject.transform.Translate(0,4.8f,0);
+            float spawnPointX = Random.Range(G.transform.position.x-3, G.transform.position.x+3);
+            float spawnPointY = Random.Range(G.transform.position.y, G.transform.position.y+1);
+            Vector3 spawnPosition = new Vector3(spawnPointX, spawnPointY, 0);
+            Instantiate(player, spawnPosition, Quaternion.identity);
+        }
     }
 
     public void Spawn()

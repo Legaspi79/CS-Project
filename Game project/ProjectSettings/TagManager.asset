@@ -6,6 +6,7 @@ TagManager:
   tags:
   - turn
   - box
+  - text
   layers:
   - Default
   - TransparentFX
@@ -17,9 +18,9 @@ TagManager:
   - 
   - CH
   - BG
-  - 
-  - 
-  - 
+  - platform
+  - box
+  - player
   - 
   - 
   - 
