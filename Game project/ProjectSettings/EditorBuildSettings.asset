@@ -12,7 +12,7 @@ EditorBuildSettings:
     path: Assets/Project game.unity
     guid: 5c63e86087db8c341a67e4b807f9b0c1
   - enabled: 1
-    path: Assets/Settings menu.unity
+    path: Assets/Scenes/Settings/Settings menu.unity
     guid: 9e11dfaa2f70ca2479e6006e43de0440
   - enabled: 1
     path: Assets/Scenes/Leaderboard/Leaderboard.unity
