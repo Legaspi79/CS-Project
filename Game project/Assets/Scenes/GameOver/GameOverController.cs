@@ -9,10 +9,15 @@ public class GameOverController : MonoBehaviour
 {
     public int score;
     public TMP_InputField TMP_IF;
+    [SerializeField] TextMeshProUGUI TextMesh;
 
-    public void setScore(int xscore)
-    {
+    private void Awake() {
+        // setScore(5);
+    }
+
+    public void setScore(int xscore) {
         score = xscore;
+        TextMesh.text = xscore.ToString();
     }
 
     public void getUserInput() {
