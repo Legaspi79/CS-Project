@@ -7,8 +7,13 @@ using TMPro;
 
 public class GameOverController : MonoBehaviour
 {
-    public int score = 88888;
+    public int score;
     public TMP_InputField TMP_IF;
+
+    public void setScore(int xscore)
+    {
+        score = xscore;
+    }
 
     public void getUserInput() {
         string username = TMP_IF.text;
@@ -45,9 +50,6 @@ public class GameOverController : MonoBehaviour
         string json = JsonUtility.ToJson(highscores);
         PlayerPrefs.SetString("highscoreTable", json);
         PlayerPrefs.Save();
-    }
-    public void setScore(int xscore) {
-        score = xscore;
     }
 
     public void ToLeadeboard()

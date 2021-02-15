@@ -2055,7 +2055,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8134521bb88568748b5f42e4fbc2c15f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  score: 88888
+  score: 0
   TMP_IF: {fileID: 1616566303}
 --- !u!4 &1748394769
 Transform:
