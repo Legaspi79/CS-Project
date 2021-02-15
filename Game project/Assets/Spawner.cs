@@ -19,7 +19,7 @@ public class Spawner : MonoBehaviour
             GameObject G = Instantiate(Resources.Load("platform")) as GameObject;
             G.transform.position = gameObject.transform.position;
             gameObject.transform.Translate(0,4.8f,0);
-            float spawnPointX = Random.Range(G.transform.position.x-3, G.transform.position.x+3);
+            float spawnPointX = Random.Range(G.transform.position.x-1, G.transform.position.x+5);
             float spawnPointY = Random.Range(G.transform.position.y, G.transform.position.y+1);
             Vector3 spawnPosition = new Vector3(spawnPointX, spawnPointY, 0);
             Instantiate(player, spawnPosition, Quaternion.identity);

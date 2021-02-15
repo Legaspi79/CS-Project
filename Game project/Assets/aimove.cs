@@ -28,8 +28,6 @@ public class aimove : MonoBehaviour
             transform.Translate(-1 * Time.deltaTime * speed, 0,0);
             transform.localScale = new Vector2 (-1,1);
         }
-        
-        
     }
 
     void OnTriggerEnter2D(Collider2D trig)

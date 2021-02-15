@@ -14,7 +14,7 @@ public class grabandthrow : MonoBehaviour
     public float throwforce;
     public static bool grabbed;
     public LayerMask notgrabbed;
-    public bool thrown;
+    public static bool thrown;
     public static int Score = 0;
     // Update is called once per frame
 
