@@ -23,25 +23,19 @@ public class LeaderboardTable : MonoBehaviour
             string path = Application.streamingAssetsPath + "/blankTable.txt";
             string njsonString = File.ReadAllText(path);
             PlayerPrefs.SetString("highScoreTable", njsonString);
+            PlayerPrefs.Save();
         }
-
-        /* highscoreEntryList = new List<HighscoreEntry>() {
-            new HighscoreEntry {score = 999, name = "AAA"},
-            new HighscoreEntry {score = 888, name = "bbb"},
-            new HighscoreEntry {score = 777, name = "ccc"},
-            new HighscoreEntry {score = 666, name = "ddd"},
-            new HighscoreEntry {score = 555, name = "eee"},
-            new HighscoreEntry {score = 444, name = "fff"},
-            new HighscoreEntry {score = 333, name = "ggg"},
-            new HighscoreEntry {score = 222, name = "hhh"},
-            new HighscoreEntry {score = 111, name = "iii"},
-            new HighscoreEntry {score = 1000, name = "harambe"}
-        }; */
 
         // load from json
         string jsonString = PlayerPrefs.GetString("highscoreTable");
         Highscores highscores = JsonUtility.FromJson<Highscores>(jsonString);
 
+        // for removing entries
+        /* highscores.highscoreEntryList.Sort((x, y) => y.score.CompareTo(x.score));
+        highscores.highscoreEntryList.RemoveAt(0);
+        string json = JsonUtility.ToJson(highscores);
+        PlayerPrefs.SetString("highscoreTable", json);
+        PlayerPrefs.Save(); */
 
         highscoreEntryTransformList = new List<Transform>();
         foreach (HighscoreEntry highscoreEntry in highscores.highscoreEntryList) {
