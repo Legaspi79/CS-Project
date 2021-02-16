@@ -19,10 +19,8 @@ public class LeaderboardTable : MonoBehaviour
 
         entryTemplate.gameObject.SetActive(false);
 
-        if (!PlayerPrefs.HasKey("highScoreTable")) {
-            string path = Application.streamingAssetsPath + "/blankTable.txt";
-            string njsonString = File.ReadAllText(path);
-            PlayerPrefs.SetString("highScoreTable", njsonString);
+        if (!PlayerPrefs.HasKey("highscoreTable")) {
+            PlayerPrefs.SetString("highscoreTable", "100");
             PlayerPrefs.Save();
         }
 
