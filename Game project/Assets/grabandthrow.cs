@@ -1,9 +1,6 @@
-﻿using System.Linq.Expressions;
-using System;
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class grabandthrow : MonoBehaviour
 {
@@ -15,51 +12,48 @@ public class grabandthrow : MonoBehaviour
     public static bool grabbed;
     public LayerMask notgrabbed;
     public static bool thrown;
-    public static int Score = 0;
+    
+    
     // Update is called once per frame
-
-
+    
     void Update()
     {
-        
-        
-        
         RaycastHit2D grabCheck = Physics2D.Raycast(grabDetect.position, Vector2.right * transform.localScale, rayDist); 
         
         if(grabbed && grabCheck.collider.tag == "box"){
             grabCheck.collider.gameObject.transform.parent = boxHolder;
             grabCheck.collider.gameObject.transform.position = boxHolder.position;
             grabCheck.collider.gameObject.GetComponent<Rigidbody2D>().isKinematic = true;
+            
             //effector.rotationalOffset = 0;
         }
         // else if(!grabbed){
         //     effector.rotationalOffset = 180;
         // }
-            
-
+           
         if(Input.GetMouseButtonDown(0)){
-            
-             print("pressed");
             if(grabbed){
-                print("throwing");
                 if(grabCheck.collider.gameObject.GetComponent<Rigidbody2D>() !=null){
-                    grabCheck.collider.gameObject.GetComponent<Rigidbody2D>().velocity = new Vector2(transform.localScale.x-1,3)*throwforce;
+                    thrown = true;
+                    grabCheck.collider.gameObject.GetComponent<Rigidbody2D>().velocity = new Vector2(0,2)*throwforce;
                     grabCheck.collider.gameObject.GetComponent<Rigidbody2D>().isKinematic = false;
                     grabCheck.collider.gameObject.transform.parent = null;
                     grabbed = false;
-                    thrown = true;
                 }
             }
             else if(!grabbed){
                 if(grabCheck.collider != null && grabCheck.collider.tag == "box"){
-                    print("grabbing");
-                    grabbed = true; 
-                    thrown = false; 
-                    Score+=1;
+                    grabbed = true;
+                    thrown = false;
+                    Timer.Score+=10;
                 }
                 
             }    
         }
 
     }
+    
+    
 }
+
+

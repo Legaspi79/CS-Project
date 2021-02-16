@@ -12,7 +12,8 @@ public class GameOverController : MonoBehaviour
     [SerializeField] TextMeshProUGUI TextMesh;
 
     private void Awake() {
-        // setScore(5);
+        int GetScore = PlayerPrefs.GetInt("Score");
+        setScore(GetScore);
     }
 
     public void setScore(int xscore) {

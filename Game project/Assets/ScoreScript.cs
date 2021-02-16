@@ -16,6 +16,6 @@ public class ScoreScript : MonoBehaviour
 
     // Update is called once per frame
     void Update(){
-        MyScoreText.text = "Score:" + grabandthrow.Score;
+        MyScoreText.text = "Score:" + Timer.Score;
     }
 }
